@@ -1,0 +1,80 @@
+<html>
+  <head>
+    <title>Sprite Sheets!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link rel="stylesheet" type="text/css" media="all" href="style.css">
+	<script data-main="main" src="require.js"></script>
+  </head>
+  <body>
+    <h1>Sprite Sheets</h1>
+    <h4>* Note * this page looks a little better in Firefox than in Chrome, but works in either.</h4>
+    <h4>* Also Note * the example sprite used here is from Photon Storm's game Nutmeg.</h4>
+    <p>Sprite sheets are a way of adding animations to 2D games.</p>
+    <p>For this tutorial, we are going to examine the follwing animation: </p>
+
+    <div id='fully-animated' class='can'></div>
+
+    <p>The original animation is 16 x 18 pixels, which can be a little hard to
+      look at. We're going to blow him up to 10 times the original size so we
+      can get a better look at things, but we will still refer to the original
+      measurements. All blown up he looks like this: </p>
+
+    <div id='giant-animated' class='can'></div>
+
+    <p>If we slow him down we can see each induvidual frame that makes up the
+      animation. </p>
+
+    <div id='slow-giant-animated' class='can'></div>
+
+    <p> We can see there are 4 total frames that make up the animation, but 1 of
+      the frames is a duplicate of the other, so there are only 3 unique frames
+      in the animation. Split up, all 4 frames look like this:</p>
+
+    <div id='frames'>
+      <div id='giant-frame-0' class='can'></div>
+      <div id='giant-frame-1' class='can'></div>
+      <div id='giant-frame-2' class='can'></div>
+      <div id='giant-frame-3' class='can'></div>
+    </div>
+
+    <p>The way we import this animation to the game is as a single image. It looks like this:</p>
+
+    <div id='walk-sheet'></div>
+
+    <p>Basically we are placing the frames side by side, with no padding between
+       them. If you do not want something drawn in game, then it should not be drawn
+       on the sprite sheet, so there are no borders and no backgrounds on the sprite
+       (for the purposes of this webpage a white background is displayed, but you want
+       to make the background transparent in practice). Each frame starts where the old
+       frame ended. Notice that we only need to include the unique frames, the first
+       frame can be reused, so in the actual animation we play the first frame, the
+       second frame, the first frame, the third frame, and repeat. Below are some
+       measurements to clarify.</p>
+
+    <div id='walk-sheet-lines'></div>
+
+    <p>Another thing to note is that we only draw the sprite 'facing' the left. This is because the sprite engine can mirror the image for us, saving time. Also, in addition to being able reuse frames, you can also use only a subset of frames from a sprite sheet, allowing you to fit many more animations in a single sheet. Here is the full sprite sheet, with a fourth frame that can be used for a jump animation.</p>
+
+    <div id='full-sheet'></div>
+
+    <p>Finally, here is a quick demo demonstrating multiple animations from the same sprite sheet (in normal scale). Use the left and right arrows to run around, and the up key to jump.</p>
+
+    <div id='demo'></div>
+
+    <h3> Final Notes</h3>
+
+    <p>
+      There are variations on sprite sheet formats you can read about later, but this is the most simple and most common implementationt, and it will work pretty much everywhere. If you find you need to do things differently, you can research how to do so when the problem arises, otherwise, for the sake of getting started here are some basic guidelines to start off with (again, just for the sake of getting started, you can do things differently later if you understand the sprite engine of your specific engine).
+      <ul>
+        <li>Each sprite sheet should be self contained, meaning it should be in its own image file. Don't put 2 sprite sheets in a single image file, and don't split the sprite sheet for one character into 2 files.</li>
+        <li>All the frames in a give sprite sheet should be the same size. Different sprite sheets can have different size frames, but sprite sheets much be consisten with themslves.</li>
+        <li>There should be no 'padding' between frames. Frames are laid side by side with no spacing.</li>
+        <li>Sprites with direction should always face left. The sprite engine can mirror the image for you when you need it to face to the right.</li>
+        <li>You probably want a transparent background for most character sprites you are making.</li>
+        <li>Don't draw a border on a frame unless you want that border to show up in game.</li>
+        <li>Remeber alphas are fine in sprite sheets :D</li>
+      </ul>
+    </p>
+
+  </body>
+</html>

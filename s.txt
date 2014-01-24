@@ -1,0 +1,3 @@
+Sprite Sheets:
+
+Sprite sheets are a way to add animations to your game. A sprite sheet is typically a series of frames, in order, in a single image, like so:
