@@ -47,14 +47,12 @@ require(["jam", "../lib/sylvester"], function(jam, syl) {
   };
 
   var main = function() {
-      /** /
     fullyAnimated();
     giantAnimated();
     slowGiantAnimated();
     giantFrames();
     walkSheet();
     walkSheetLines();
-    /**/
     fullSheet();
     demo();
   };
@@ -252,6 +250,7 @@ require(["jam", "../lib/sylvester"], function(jam, syl) {
            });
       n.false = true;
     n.on('update', function(dt){
+            jam.Rect.collide(n, tm);
             if (Math.floor(n.y) === 94){
                 n.jumping = false;
             }
@@ -276,7 +275,6 @@ require(["jam", "../lib/sylvester"], function(jam, syl) {
             if (n.jumping){
                 n.playAnimation(n.jump);
             }
-            jam.Rect.collide(n, tm);
         });
 
     s.add(n);
